@@ -19,7 +19,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.7 var(--f);overflow-x:hidden}
 h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.015em}
-p{margin:0}a{color:inherit}
+p{margin:0;text-align:justify}a{color:inherit}
 .mu{color:var(--mu)}
 .w{max-width:1080px;margin:0 auto;padding-inline:24px}
 section{padding-block:clamp(56px,9vw,96px)}
@@ -35,26 +35,17 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:co
 .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.p{color:#04211d}}
 .hero{padding-top:clamp(44px,7vw,84px)}
-.hg{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.hg{display:grid;grid-template-columns:1fr;gap:56px;align-items:center}
 .tag{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .tag span{background:var(--acs);color:var(--ac);border-radius:6px;padding:4px 10px;font-size:.85rem;font-weight:500}
 h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .role{font-size:clamp(1.1rem,2.4vw,1.4rem);color:var(--ac);font-weight:500;margin-top:10px}
 .lead{margin-top:22px;max-width:58ch;color:var(--mu)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-/* ledger */
-.lg{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;font-family:var(--m);font-size:.82rem}
-.lg h2{font:500 .78rem var(--m);padding:12px 18px;border-bottom:1px solid var(--bd);color:var(--mu);letter-spacing:.04em}
-.lg ul{list-style:none;margin:0;padding:0}
-.lg li{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:13px 18px;border-bottom:1px dashed var(--bd)}
-.lg li:last-child{border:0;background:var(--acs)}
-.lg em{font-style:normal;color:var(--ac);font-weight:500;white-space:nowrap}
-.lg .u em{color:#b45309}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .lg .u em{color:#fbbf24}}
 .st{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bd);border-radius:12px;background:var(--card);margin-top:48px}
-.st div{padding:18px 20px;border-right:1px solid var(--bd);font-size:.9rem;color:var(--mu)}
+.st div{padding:18px 20px;border-right:1px solid var(--bd);font-size:1rem;font-weight:600;color:var(--tx)}
 .st div:last-child{border:0}
-.st strong{display:block;color:var(--tx);font-size:1.05rem}
+.st strong{display:block;color:var(--tx);font-size:1rem;font-weight:600}
 .sh{max-width:620px;margin-bottom:38px}
 .sh h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}.sh p{margin-top:10px;color:var(--mu)}
 .alt{background:color-mix(in srgb,var(--card) 60%,var(--bg))}
@@ -102,7 +93,7 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 <header><div class="w nav">
   <b>Shashank Raj</b>
   <nav aria-label="Main"><a href="#about">About</a><a href="#services">Services</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
-  <a class="btn p" href="#contact" style="padding:8px 16px;font-size:.9rem">Get in touch</a>
+  <a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=rajshashank35@gmail.com" target="_blank" rel="noopener" style="padding:8px 16px;font-size:.9rem">Get in touch</a>
 </div></header>
 
 <main id="main">
@@ -113,18 +104,9 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
       <h1>Shashank Raj</h1>
       <p class="role">Reconciliation &amp; Financial Reporting Specialist</p>
       <p class="lead">Experience across bookkeeping, reconciliation, financial reporting, audit support, taxation and financial operations. I keep financial records accurate, resolve discrepancies and give clients accounting information they can rely on.</p>
-      <div class="cta"><a class="btn p" href="#contact">Get in touch</a><a class="btn" href="#services">See what I handle</a></div>
+      <div class="cta"><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=rajshashank35@gmail.com" target="_blank" rel="noopener">Get in touch</a></div>
     </div>
-    <aside class="lg" aria-label="How a reconciliation is resolved">
-      <h2>RECONCILIATION WORKFLOW</h2>
-      <ul>
-        <li>Bank statement vs. accounting records<em>Compared</em></li>
-        <li class="u">Unmatched transaction<em>Identified</em></li>
-        <li>Difference traced to source<em>Investigated</em></li>
-        <li>Correction supported, notes kept<em>Documented</em></li>
-        <li>Account balance<em>Reconciled &#10003;</em></li>
-      </ul>
-    </aside>
+
   </div>
   <div class="st" role="list">
     <div role="listitem"><strong>2+ years</strong>experience</div>
@@ -138,13 +120,13 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
   <div class="sh"><h2>About</h2></div>
   <div class="abt">
     <div class="rv">
-      <p>I'm an ACCA Finalist and BBS graduate with professional experience across bookkeeping, accounting operations, reconciliation, financial reporting, audit support and tax compliance.</p>
-      <p class="mu">My work involves recording and reviewing transactions, reconciling bank and vendor accounts, supporting accounts payable and receivable, preparing financial reports and resolving discrepancies. I've also supported financial closing, statutory compliance, audit documentation and financial data review, with a focus on accuracy, efficiency and timely delivery.</p>
-      <p class="mu">I've worked with Xero, Tally Prime, Tally ERP, Synergy and Dynamics NAV, along with Excel and other Microsoft Office tools.</p>
+      <p>I'm Shashank Raj, an ACCA Finalist and BBS graduate specializing in reconciliation, bookkeeping, and accounting operations.</p>
+      <p class="mu">My work centers on transforming financial data into accurate, structured, and reliable financial records. This includes bank and vendor reconciliations, transaction recording, journal entries, accounts payable and receivable, financial closing, reporting, and audit support.</p>
+      <p class="mu">I work with Xero, Tally Prime, Tally ERP, Synergy, Dynamics NAV, and Excel, combining accounting knowledge with a structured and detail-oriented approach to identify discrepancies, maintain well-organized records, and support efficient financial processes.</p>
     </div>
     <div class="cols rv">
-      <div class="box"><h3>How I work</h3><p>Accuracy, consistency, documentation and timely completion. Good bookkeeping means clean records, identified discrepancies and supporting documents that keep reporting reliable.</p></div>
-      <div class="box"><h3>What I'm building toward</h3><p>Deeper expertise in international bookkeeping, accounting outsourcing, cloud accounting and financial reporting, combining my ACCA studies with practical experience to support international clients.</p></div>
+      <div class="box"><h3>My Approach</h3><em style="display:block;color:var(--ac);font-weight:500;margin-bottom:8px">Accuracy. Consistency. Clarity.</em><p>I believe effective accounting goes beyond recording transactions. It requires understanding the underlying data, identifying and resolving discrepancies, maintaining proper documentation, and ensuring financial information is accurate, traceable, and reliable.</p></div>
+      <div class="box"><h3>Building Toward</h3><p>I'm building my professional expertise around international bookkeeping, accounting outsourcing, cloud accounting, reconciliation, and financial reporting. My long-term focus is to combine accounting expertise, technology, and structured processes to deliver dependable and efficient financial solutions for businesses and global clients.</p></div>
     </div>
   </div>
 </div></section>
