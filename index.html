@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -30,7 +30,6 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:co
 .nav b{font-weight:700}
 .nav nav{display:flex;gap:18px;margin-left:auto;font-size:.92rem}
 .nav nav a{text-decoration:none;color:var(--mu);padding:6px 0}.nav nav a:hover{color:var(--tx)}
-.nav nav a.home-link{color:var(--ac);font-weight:600}.nav nav a.home-link:hover{color:var(--ac)}
 .btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:500;text-decoration:none;border:1px solid var(--bd);background:var(--card);transition:transform .2s,border-color .2s}
 .btn:hover{transform:translateY(-2px);border-color:var(--ac)}
 .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
@@ -86,6 +85,10 @@ h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .sv h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
 .svicon{width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:var(--acs);color:var(--ac);display:inline-flex;align-items:center;justify-content:center}
 .svicon svg{width:17px;height:17px}
+/* projects */
+.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.pr .box h3{font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.pr .box p{color:var(--mu);font-size:.92rem}
 .sv summary em{display:block;color:var(--mu);font-style:italic;margin:6px 0 10px;font-size:.93rem}
 .sv summary p.sm{margin:0 0 12px;font-size:.9rem;color:var(--mu);text-align:left}
 .sv summary span{color:var(--ac);font-weight:500;font-size:.9rem}
@@ -120,7 +123,6 @@ h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .ci{display:inline-flex;align-items:center;gap:9px;font-weight:600}
 .ci svg{width:16px;height:16px;color:var(--ac);flex:0 0 16px}
 footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-size:.88rem}
-
 .js .rv{opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}.js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
 @media(max-width:860px){.hg,.abt,.rg{grid-template-columns:1fr;gap:32px}.st{grid-template-columns:1fr 1fr}.st div:nth-child(2){border-right:0}.st div:nth-child(-n+2){border-bottom:1px solid var(--bd)}.ed li{grid-template-columns:1fr;gap:6px}.nav nav{display:none}}
@@ -132,7 +134,7 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 <a class="skip" href="#main">Skip to content</a>
 <header><div class="w nav">
   <b>Shashank Raj</b>
-  <nav aria-label="Main"><a href="#main" class="home-link">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
+  <nav aria-label="Main"><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="main">
@@ -143,7 +145,7 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
       <h1>Shashank Raj</h1>
       <p class="role">Reconciliation &amp; Financial Reporting Specialist</p>
       <p class="lead">ACCA Finalist and BBS graduate with experience across bookkeeping, reconciliation, financial reporting, audit support, taxation and financial operations. Skilled in maintaining accurate financial records, resolving discrepancies and supporting clients with reliable accounting information.</p>
-      <div class="cta"><a class="btn p" href="contact.html" rel="noopener">Get in touch</a></div>
+      <div class="cta"><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=rajshashank35@gmail.com" target="_blank" rel="noopener">Get in touch</a></div>
       <div class="status"><i></i>Open to freelance &amp; contract accounting work</div>
     </div>
   </div>
@@ -169,6 +171,11 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 <section id="services"><div class="w">
   <div class="sh"><h2>What I can help with</h2><p>Practical accounting support focused on accurate records, reconciled accounts and reliable financial information.</p></div>
   <div class="sv" id="sv"></div>
+</div></section>
+
+<section id="projects"><div class="w">
+  <div class="sh"><h2>Projects</h2><p>A snapshot of the work I take on, from reconciliations to reporting and compliance.</p></div>
+  <div class="pr" id="pr"></div>
 </div></section>
 
 <section id="resume" class="alt"><div class="w">
@@ -200,7 +207,6 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 </main>
 <footer><div class="w">&copy; 2026 Shashank Raj &middot; ACCA Finalist &middot; BBS Graduate</div></footer>
 
-
 <script>
 document.documentElement.classList.add('js');
 const S=[
@@ -221,6 +227,20 @@ const ICONS={
 const e=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 document.getElementById('sv').innerHTML=S.map(([t,tag,sum,i],k)=>`<details class="rv"${k===1?' open':''}><summary><h3><span class="svicon">${ICONS[t]||''}</span>${e(t)}</h3><em>${e(tag)}</em><p class="sm">${e(sum)}</p><span>What I handle</span></summary><dl>${i.map(([a,b])=>`<dt>${e(a)}</dt><dd>${e(b)}</dd>`).join('')}</dl></details>`).join('');
 document.getElementById('rg').innerHTML=R.map(([t,d])=>`<div class="box rv"><h3>${e(t)}</h3><div class="chips">${d.split(', ').map(x=>`<span>${e(x)}</span>`).join('')}</div></div>`).join('');
+
+const P=[
+  ["Bank Reconciliation","Reconciled bank statements against ledger records, identified unmatched transactions, and resolved discrepancies with clear supporting documentation."],
+  ["Financial Reporting","Prepared and organized profit &amp; loss, balance sheet, and cash flow information to support month-end reporting and management review."],
+  ["Tax &amp; Compliance","Supported VAT, TDS, and income tax filing processes, maintaining organized documentation for statutory compliance."],
+  ["Accounting &amp; Bookkeeping","Maintained day-to-day transaction records, journal entries, and ledgers, keeping accounts organized and audit-ready."]
+];
+const PICON={
+  "Bank Reconciliation":ICONS["Reconciliation"],
+  "Financial Reporting":ICONS["Financial Reporting"],
+  "Tax &amp; Compliance":ICONS["Tax & Compliance"],
+  "Accounting &amp; Bookkeeping":ICONS["Bookkeeping & Accounts"]
+};
+document.getElementById('pr').innerHTML=P.map(([t,d])=>`<div class="box rv"><h3><span class="svicon">${PICON[t]||''}</span>${t}</h3><p>${d}</p></div>`).join('');
 const o=new IntersectionObserver(a=>a.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(x=>o.observe(x));
 
