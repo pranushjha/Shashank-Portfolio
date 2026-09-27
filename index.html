@@ -50,10 +50,76 @@ h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .status{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--mu);margin-top:20px}
 .status i{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px color-mix(in srgb,#22C55E 22%,transparent);display:inline-block;flex:0 0 8px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.st{display:grid;grid-template-columns:repeat(4,1fr);border-radius:12px;background:#0F172A;margin-top:48px}
-.st div{padding:18px 20px;border-right:1px solid rgba(255,255,255,.14);font-size:1rem;font-weight:600;color:#F8FAFC}
-.st div:last-child{border:0}
-.st strong{display:block;color:#fff;font-size:1.1rem;font-weight:700}
+/* ===== HERO STATS ===== */
+.st{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#0F172A;
+  border-radius:12px;
+  margin-top:48px;
+  overflow:hidden;
+}
+
+.st div{
+  min-width:0;
+  padding:22px 20px;
+  border-right:1px solid rgba(255,255,255,.14);
+  color:#F8FAFC;
+  font-size:.95rem;
+  font-weight:500;
+  line-height:1.4;
+}
+
+.st div:last-child{
+  border-right:0;
+}
+
+.st strong{
+  display:block;
+  margin:0 0 7px;
+  color:#FFFFFF;
+  font-size:1.05rem;
+  font-weight:700;
+  line-height:1.25;
+  white-space:normal;
+}
+
+.st span{
+  display:block;
+  color:#F8FAFC;
+  font-size:.95rem;
+  font-weight:500;
+  line-height:1.4;
+}
+
+@media(max-width:860px){
+  .st{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .st div:nth-child(2){
+    border-right:0;
+  }
+
+  .st div:nth-child(-n+2){
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+}
+
+@media(max-width:520px){
+  .st{
+    grid-template-columns:1fr;
+  }
+
+  .st div{
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+
+  .st div:last-child{
+    border-bottom:0;
+  }
+}
 .sh{max-width:620px;margin-bottom:38px}
 .sh h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}.sh p{margin-top:10px;color:var(--mu)}
 #services .sh{max-width:none}
@@ -75,16 +141,148 @@ h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .box h3{font-size:1rem;margin-bottom:6px}.box p{color:var(--mu);font-size:.93rem}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
 .chips span{background:var(--acs);color:var(--ac);border-radius:6px;padding:3px 9px;font-size:.78rem;font-weight:500}
-/* services */
-.sv{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
-.sv details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:22px;transition:transform .2s,border-color .2s,box-shadow .2s}
-.sv details[open],.sv details:hover{border-color:var(--ac)}
-.sv details:hover{transform:translateY(-3px);box-shadow:0 12px 24px -14px color-mix(in srgb,var(--tx) 18%,transparent)}
-.sv summary{cursor:pointer;list-style:none}
-.sv summary::-webkit-details-marker{display:none}
-.sv h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
-.svicon{width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:var(--acs);color:var(--ac);display:inline-flex;align-items:center;justify-content:center}
-.svicon svg{width:17px;height:17px}
+/* ===== SERVICES / WHAT I CAN HELP WITH ===== */
+.sv{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.sv details{
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:12px;
+  padding:22px;
+  min-height:255px;
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+
+.sv details[open],
+.sv details:hover{
+  border-color:var(--ac);
+}
+
+.sv details:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px -14px color-mix(in srgb,var(--tx) 18%,transparent);
+}
+
+.sv summary{
+  cursor:pointer;
+  list-style:none;
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.sv summary::-webkit-details-marker{
+  display:none;
+}
+
+.sv h3{
+  font-size:1.15rem;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  line-height:1.3;
+  margin:0;
+}
+
+.sv summary em{
+  display:block;
+  margin-top:10px;
+  color:var(--mu);
+  font-size:.95rem;
+  line-height:1.65;
+}
+
+.sv summary .sm{
+  margin-top:10px;
+  color:var(--mu);
+  font-size:.93rem;
+  line-height:1.7;
+  text-align:left;
+}
+
+.sv summary > span{
+  display:block;
+  margin-top:auto;
+  padding-top:14px;
+  color:var(--ac);
+  font-size:.9rem;
+  font-weight:600;
+}
+
+.sv summary > span::after{
+  content:" +";
+  font-weight:700;
+}
+
+.svicon{
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  border-radius:9px;
+  background:var(--acs);
+  color:var(--ac);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.svicon svg{
+  width:17px;
+  height:17px;
+}
+
+/* Expanded service details */
+.sv details[open] summary{
+  min-height:auto;
+}
+
+.sv details[open] summary > span::after{
+  content:" −";
+}
+
+.sv dl{
+  margin:18px 0 0;
+  padding-top:16px;
+  border-top:1px solid var(--bd);
+  display:grid;
+  gap:10px;
+}
+
+.sv dt{
+  color:var(--tx);
+  font-weight:600;
+  font-size:.9rem;
+}
+
+.sv dd{
+  margin:0;
+  color:var(--mu);
+  font-size:.88rem;
+  line-height:1.55;
+}
+
+@media(max-width:860px){
+  .sv{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:620px){
+  .sv{
+    grid-template-columns:1fr;
+  }
+
+  .sv details{
+    min-height:240px;
+  }
+}
 /* resume */
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:38px}
 .rg .box h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
@@ -235,10 +433,25 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
     </div>
   </div>
   <div class="st" role="list">
-    <div role="listitem"><strong>2+ years</strong>Experience</div>
-    <div role="listitem"><strong>Accounting &amp; Xero</strong>Bookkeeping</div>
-    <div role="listitem"><strong>Taxation</strong>&amp; Compliance</div>
-    <div role="listitem"><strong>Reconciliation</strong>&amp; Financial Control</div>
+    <div role="listitem">
+      <strong>2+ years</strong>
+      <span>Experience</span>
+    </div>
+
+    <div role="listitem">
+      <strong>Accounting &amp; Xero</strong>
+      <span>Bookkeeping</span>
+    </div>
+
+    <div role="listitem">
+      <strong>Taxation</strong>
+      <span>&amp; Compliance</span>
+    </div>
+
+    <div role="listitem">
+      <strong>Reconciliation</strong>
+      <span>&amp; Financial Control</span>
+    </div>
   </div>
 </div></section>
 
@@ -338,7 +551,7 @@ const ICONS={
   "Tax & Compliance":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h3"/></svg>'
 };
 const e=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-document.getElementById('sv').innerHTML=S.map(([t,tag,sum,i],k)=>`<details class="rv"${k===1?' open':''}><summary><h3><span class="svicon">${ICONS[t]||''}</span>${e(t)}</h3><em>${e(tag)}</em><p class="sm">${e(sum)}</p><span>What I handle</span></summary><dl>${i.map(([a,b])=>`<dt>${e(a)}</dt><dd>${e(b)}</dd>`).join('')}</dl></details>`).join('');
+document.getElementById('sv').innerHTML=S.map(([t,tag,sum,i])=>`<details class="rv"><summary><h3><span class="svicon">${ICONS[t]||''}</span>${e(t)}</h3><em>${e(tag)}</em><p class="sm">${e(sum)}</p><span>What I handle</span></summary><dl>${i.map(([a,b])=>`<dt>${e(a)}</dt><dd>${e(b)}</dd>`).join('')}</dl></details>`).join('');
 document.getElementById('rg').innerHTML=R.map(([t,d])=>`<div class="box rv"><h3>${e(t)}</h3><div class="chips">${d.split(', ').map(x=>`<span>${e(x)}</span>`).join('')}</div></div>`).join('');
 
 const P=[
@@ -404,12 +617,15 @@ function b64ToBytes(b64){
   });
 })();
 
-// Contact form
+// Contact form - sends directly from the website without opening Gmail.
 (() => {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (event) => {
+  const button = form.querySelector('.contact-send');
+  const originalButtonText = button ? button.textContent : 'Send';
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const name = document.getElementById('contactName').value.trim();
@@ -417,23 +633,43 @@ function b64ToBytes(b64){
     const phone = document.getElementById('contactPhone').value.trim();
     const message = document.getElementById('contactMessage').value.trim();
 
-    const subject = `Website contact from ${name}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Phone: ${phone || 'Not provided'}`,
-      '',
-      'Message:',
-      message
-    ].join('\n');
+    if (!name || !email || !message) return;
 
-    const gmailUrl =
-      'https://mail.google.com/mail/?view=cm&fs=1' +
-      '&to=rajshashank35@gmail.com' +
-      '&su=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending...';
+    }
 
-    window.open(gmailUrl, '_blank', 'noopener');
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone || 'Not provided');
+    formData.append('message', message);
+    formData.append('_subject', `Website contact from ${name}`);
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('_replyto', email);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/pranyushjha@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Message could not be sent.');
+
+      form.reset();
+      alert('Your message has been sent successfully. Thank you!');
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('Sorry, your message could not be sent. Please try again later.');
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+    }
   });
 })();
 
