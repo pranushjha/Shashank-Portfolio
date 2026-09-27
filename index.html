@@ -85,17 +85,6 @@ h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
 .sv h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
 .svicon{width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:var(--acs);color:var(--ac);display:inline-flex;align-items:center;justify-content:center}
 .svicon svg{width:17px;height:17px}
-/* projects */
-.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.pr .box h3{font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.pr .box p{color:var(--mu);font-size:.92rem}
-.sv summary em{display:block;color:var(--mu);font-style:italic;margin:6px 0 10px;font-size:.93rem}
-.sv summary p.sm{margin:0 0 12px;font-size:.9rem;color:var(--mu);text-align:left}
-.sv summary span{color:var(--ac);font-weight:500;font-size:.9rem}
-.sv summary span::after{content:" +"}.sv details[open] summary span::after{content:" \2212"}
-.sv dl{margin:18px 0 0;border-top:1px solid var(--bd)}
-.sv dt{font-weight:600;font-size:.92rem;margin-top:14px}
-.sv dd{margin:2px 0 0;color:var(--mu);font-size:.9rem}
 /* resume */
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:38px}
 .rg .box h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
@@ -127,6 +116,102 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
 @media(max-width:860px){.hg,.abt,.rg{grid-template-columns:1fr;gap:32px}.st{grid-template-columns:1fr 1fr}.st div:nth-child(2){border-right:0}.st div:nth-child(-n+2){border-bottom:1px solid var(--bd)}.ed li{grid-template-columns:1fr;gap:6px}.nav nav{display:none}}
 @media(max-width:520px){.w{padding-inline:18px}.cta .btn{width:100%;text-align:center}.sv{grid-template-columns:1fr}}
+
+
+/* contact form — same visual language as the portfolio */
+.contact-layout{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:48px;
+  align-items:start;
+}
+.contact-info{
+  display:flex;
+  flex-direction:column;
+}
+.contact-form-wrap{
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:12px;
+  padding:28px;
+  box-shadow:0 12px 28px -20px color-mix(in srgb,var(--tx) 20%,transparent);
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.contact-form-wrap:hover{
+  border-color:var(--ac);
+  box-shadow:0 16px 32px -20px color-mix(in srgb,var(--tx) 24%,transparent);
+  transform:translateY(-2px);
+}
+.contact-form{
+  display:grid;
+  gap:16px;
+}
+.contact-field{
+  display:grid;
+  gap:6px;
+}
+.contact-field label{
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--tx);
+  letter-spacing:.01em;
+}
+.contact-field input,
+.contact-field textarea{
+  width:100%;
+  border:1px solid var(--bd);
+  border-radius:8px;
+  background:var(--card);
+  color:var(--tx);
+  font:400 15px/1.5 var(--f);
+  padding:11px 12px;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.contact-field input::placeholder,
+.contact-field textarea::placeholder{
+  color:var(--mu);
+  opacity:.72;
+}
+.contact-field input:focus,
+.contact-field textarea:focus{
+  border-color:var(--ac);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 12%,transparent);
+}
+.contact-field textarea{
+  min-height:120px;
+  resize:vertical;
+}
+.contact-send{
+  width:100%;
+  margin-top:2px;
+  border:1px solid var(--ac);
+  border-radius:8px;
+  padding:11px 20px;
+  background:var(--ac);
+  color:#fff;
+  font:600 15px var(--f);
+  cursor:pointer;
+  transition:transform .2s,filter .2s,box-shadow .2s;
+}
+.contact-send:hover{
+  transform:translateY(-2px);
+  filter:brightness(.96);
+  box-shadow:0 10px 20px -14px color-mix(in srgb,var(--ac) 70%,transparent);
+}
+.contact-send:focus-visible{
+  outline:2px solid var(--ac);
+  outline-offset:3px;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .contact-send{color:#04211d}
+}
+@media(max-width:860px){
+  .contact-layout{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:520px){
+  .contact-form-wrap{padding:22px 18px}
+}
 </style>
 </head>
 <body>
@@ -134,18 +219,18 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
 <a class="skip" href="#main">Skip to content</a>
 <header><div class="w nav">
   <b>Shashank Raj</b>
-  <nav aria-label="Main"><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
+  <nav aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="main">
-<section class="hero"><div class="w">
+<section id="home" class="hero"><div class="w">
   <div class="hg">
     <div>
       <div class="tag"><span>ACCA Finalist</span><span>BBS Graduate</span></div>
       <h1>Shashank Raj</h1>
       <p class="role">Reconciliation &amp; Financial Reporting Specialist</p>
       <p class="lead">ACCA Finalist and BBS graduate with experience across bookkeeping, reconciliation, financial reporting, audit support, taxation and financial operations. Skilled in maintaining accurate financial records, resolving discrepancies and supporting clients with reliable accounting information.</p>
-      <div class="cta"><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=rajshashank35@gmail.com" target="_blank" rel="noopener">Get in touch</a></div>
+      <div class="cta"><a class="btn p" href="#contact">Get in touch</a></div>
       <div class="status"><i></i>Open to freelance &amp; contract accounting work</div>
     </div>
   </div>
@@ -193,18 +278,46 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
   </div>
 </div></section>
 
-<section id="contact"><div class="w abt">
-  <div>
+<section id="contact"><div class="w contact-layout">
+  <div class="contact-info">
     <h2 style="font-size:clamp(1.8rem,4vw,2.8rem)">Let's connect</h2>
     <p class="q" style="margin-top:22px">Ready to collaborate with someone who treats <i>every number</i> as a story worth telling.</p>
+
+    <ul class="cl" style="margin-top:32px">
+      <li><a href="mailto:rajshashank35@gmail.com"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>Email</span><span>rajshashank35@gmail.com</span></a></li>
+      <li><a href="tel:+9779825797994"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.68 2.92a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.16-1.16a2 2 0 0 1 2.11-.45c.94.32 1.92.55 2.92.68A2 2 0 0 1 22 16.92z"/></svg>WhatsApp</span><span>+977 9825797994</span></a></li>
+      <li><a href="https://linkedin.com/in/shashank-raj-jha-b11bab319/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-13h4v1.8A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span><span>shashank-raj-jha &nearr;</span></a></li>
+    </ul>
   </div>
-  <ul class="cl">
-    <li><a href="mailto:rajshashank35@gmail.com"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>Email</span><span>rajshashank35@gmail.com</span></a></li>
-    <li><a href="tel:9825797994"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.98.68 2.92a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.16-1.16a2 2 0 0 1 2.11-.45c.94.32 1.92.55 2.92.68A2 2 0 0 1 22 16.92z"/></svg>Phone / WhatsApp</span><span>9825797994</span></a></li>
-    <li><a href="https://linkedin.com/in/shashank-raj-jha-b11bab319/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-13h4v1.8A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span><span>shashank-raj-jha &nearr;</span></a></li>
-  </ul>
+
+  <div class="contact-form-wrap">
+    <form class="contact-form" id="contactForm">
+      <div class="contact-field">
+        <label for="contactName">Name</label>
+        <input id="contactName" name="name" type="text" placeholder="Enter Name" autocomplete="name" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contactEmail">Email</label>
+        <input id="contactEmail" name="email" type="email" placeholder="Enter Email" autocomplete="email" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contactPhone">Phone</label>
+        <input id="contactPhone" name="phone" type="tel" placeholder="Enter Phone" autocomplete="tel">
+      </div>
+
+      <div class="contact-field">
+        <label for="contactMessage">Message</label>
+        <textarea id="contactMessage" name="message" placeholder="Enter Message" required></textarea>
+      </div>
+
+      <button type="submit" class="contact-send">Send</button>
+    </form>
+  </div>
 </div></section>
 </main>
+
 <footer><div class="w">&copy; 2026 Shashank Raj &middot; ACCA Finalist &middot; BBS Graduate</div></footer>
 
 <script>
@@ -290,6 +403,40 @@ function b64ToBytes(b64){
     btn.disabled=false;
   });
 })();
+
+// Contact form
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const phone = document.getElementById('contactPhone').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    const subject = `Website contact from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone || 'Not provided'}`,
+      '',
+      'Message:',
+      message
+    ].join('\n');
+
+    const gmailUrl =
+      'https://mail.google.com/mail/?view=cm&fs=1' +
+      '&to=rajshashank35@gmail.com' +
+      '&su=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    window.open(gmailUrl, '_blank', 'noopener');
+  });
+})();
+
 </script>
 </body>
 </html>
