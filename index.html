@@ -471,10 +471,7 @@ footer{border-top:1px solid var(--bd);padding-block:28px;color:var(--mu);font-si
   <div class="sv" id="sv"></div>
 </div></section>
 
-<section id="projects"><div class="w">
-  <div class="sh"><h2>Projects</h2><p>A snapshot of the work I take on, from reconciliations to reporting and compliance.</p></div>
-  <div class="pr" id="pr"></div>
-</div></section>
+
 
 <section id="resume" class="alt"><div class="w">
   <div class="sh"><h2>Resume</h2><p>Skills, software, education and qualifications.</p></div>
@@ -554,19 +551,6 @@ const e=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 document.getElementById('sv').innerHTML=S.map(([t,tag,sum,i])=>`<details class="rv"><summary><h3><span class="svicon">${ICONS[t]||''}</span>${e(t)}</h3><em>${e(tag)}</em><p class="sm">${e(sum)}</p><span>What I handle</span></summary><dl>${i.map(([a,b])=>`<dt>${e(a)}</dt><dd>${e(b)}</dd>`).join('')}</dl></details>`).join('');
 document.getElementById('rg').innerHTML=R.map(([t,d])=>`<div class="box rv"><h3>${e(t)}</h3><div class="chips">${d.split(', ').map(x=>`<span>${e(x)}</span>`).join('')}</div></div>`).join('');
 
-const P=[
-  ["Bank Reconciliation","Reconciled bank statements against ledger records, identified unmatched transactions, and resolved discrepancies with clear supporting documentation."],
-  ["Financial Reporting","Prepared and organized profit &amp; loss, balance sheet, and cash flow information to support month-end reporting and management review."],
-  ["Tax &amp; Compliance","Supported VAT, TDS, and income tax filing processes, maintaining organized documentation for statutory compliance."],
-  ["Accounting &amp; Bookkeeping","Maintained day-to-day transaction records, journal entries, and ledgers, keeping accounts organized and audit-ready."]
-];
-const PICON={
-  "Bank Reconciliation":ICONS["Reconciliation"],
-  "Financial Reporting":ICONS["Financial Reporting"],
-  "Tax &amp; Compliance":ICONS["Tax & Compliance"],
-  "Accounting &amp; Bookkeeping":ICONS["Bookkeeping & Accounts"]
-};
-document.getElementById('pr').innerHTML=P.map(([t,d])=>`<div class="box rv"><h3><span class="svicon">${PICON[t]||''}</span>${t}</h3><p>${d}</p></div>`).join('');
 const o=new IntersectionObserver(a=>a.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(x=>o.observe(x));
 
